@@ -32,7 +32,7 @@ def split(string, splitters): #MAY RESOLVE ALL PROBLEMS WITH CSV
 def main():
 	print("BTSOOT SERVER")
 	while 1: #ENTERING MAIN LOOP FOR CONTINUOS USAGE
-		print(":: Waiting for incoming datastream...")
+		print(":: Waiting for incoming connection...")
 		datalib.receive("scanfile")
 		print(":: Received scanfile.")
 		print(":: Starting processing...")
