@@ -49,7 +49,7 @@ def main():
 					filepathlengh = len(filename)
 					filename = filepath[filepathlengh]
 					print(f"Creating file with name: {filename}")
-					datalib.receive(filepath)
+					datalib.receive("/home/paul/btsoot/backup" + filepath)
 		os.system("rm scanfile")
 
 
