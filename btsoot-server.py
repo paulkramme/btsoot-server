@@ -28,20 +28,29 @@ def split(string, splitters): #MAY RESOLVE ALL PROBLEMS WITH CSV
 	return final
 
 
-
 def main():
 	print("BTSOOT SERVER")
 	while 1: #ENTERING MAIN LOOP FOR CONTINUOS USAGE
 		print(":: Waiting for incoming connection...")
 		datalib.receive("scanfile")
 		print(":: Received scanfile.")
-		print(":: Starting processing...")
 		with open("scanfile", "r") as scan:
 			lines = scan.readlines()
 			for line in lines:
 				splitted_line = split(line, ",")
 				if splitted_line[2] == None:
 					os.mkdir(splitted_line[0]) #RECREATE DIRECTORY STRUCTURE
+				elif splitted_line[2] == "Error":
+					pass
+				elif splitted_line[2] == "Permission Denied":
+					pass
+				else:
+					filepath = split(splitted_line, "/")
+					filepathlengh = len(filename)
+					filename = filepath[filepathlengh]
+					print(f"Creating file with name: {filename}")
+					datalib.receive(filepath)
+		os.system("rm scanfile")
 
 
 
