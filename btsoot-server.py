@@ -50,7 +50,7 @@ def main():
 					filename = filepath[filepathlengh]
 					print(f"Creating file with name: {filename}")
 					datalib.receive("/home/paul/btsoot/backup" + filepath)
-		os.system("rm scanfile")
+		os.system("rm transmit.btlist")
 
 
 
