@@ -40,9 +40,9 @@ def main():
 				splitted_line = split(line, ",")
 				if splitted_line[2] == None:
 					os.mkdir(splitted_line[0]) #RECREATE DIRECTORY STRUCTURE
-				elif splitted_line[2] == "Error":
+				elif splitted_line[2] == "error":
 					pass
-				elif splitted_line[2] == "Permission Denied":
+				elif splitted_line[2] == "permission_denied":
 					pass
 				else:
 					filepath = split(splitted_line, "/")
