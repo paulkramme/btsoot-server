@@ -32,25 +32,28 @@ def main():
 	print("BTSOOT SERVER")
 	while 1: #ENTERING MAIN LOOP FOR CONTINUOS USAGE
 		print(":: Waiting for incoming connection...")
-		datalib.receive("transmit.btlist")
+		datalib.receive("transmit.list")
 		print(":: Received transmitfile.")
-		with open("transmit.btlist", "r") as scan:
+		with open("transmit.list", "r") as scan:
 			files = scan.readlines()
 			for file in files:
-				splitted_line = split(line, ",")
-				if splitted_line[2] == None:
-					os.mkdir(splitted_line[0]) #RECREATE DIRECTORY STRUCTURE
-				elif splitted_line[2] == "error":
-					pass
-				elif splitted_line[2] == "permission_denied":
-					pass
+				cutting_newline = file.strip('\n')
+				splitted_line = split(cutting_newline[0], ",")
+				if len(splitted_line) != 3:
+					if not os.path.exists(splitted_line[0]):
+						os.makedirs("/home/paul/btsoot/backup" + splitted_line[0])
 				else:
-					filepath = split(splitted_line, "/")
-					filepathlengh = len(filename)
-					filename = filepath[filepathlengh]
-					print(f"Creating file with name: {filename}")
-					datalib.receive("/home/paul/btsoot/backup" + filepath)
-		os.system("rm transmit.btlist")
+					if splitted_line[2] == "error":
+						pass
+					elif splitted_line[2] == "permission_denied":
+						pass
+					else:
+						filepath = split(splitted_line, "/")
+						filepathlengh = len(filename)
+						filename = filepath[filepathlengh]
+						print(f"Creating file with name: {filename}")
+						datalib.receive("/home/paul/btsoot/backup" + filepath)
+		os.system("rm transmit.list")
 
 
 
