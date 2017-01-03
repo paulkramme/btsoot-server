@@ -32,11 +32,11 @@ def main():
 	print("BTSOOT SERVER")
 	while 1: #ENTERING MAIN LOOP FOR CONTINUOS USAGE
 		print(":: Waiting for incoming connection...")
-		datalib.receive("scanfile")
-		print(":: Received scanfile.")
-		with open("scanfile", "r") as scan:
-			lines = scan.readlines()
-			for line in lines:
+		datalib.receive("transmit.btlist")
+		print(":: Received transmitfile.")
+		with open("transmit.btlist", "r") as scan:
+			files = scan.readlines()
+			for file in files:
 				splitted_line = split(line, ",")
 				if splitted_line[2] == None:
 					os.mkdir(splitted_line[0]) #RECREATE DIRECTORY STRUCTURE
