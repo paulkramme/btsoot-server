@@ -29,6 +29,7 @@ def split(string, splitters): #MAY RESOLVE ALL PROBLEMS WITH CSV
 
 
 def main():
+    print("THIS SOFTWARE SERVERS NO PURPOSE ANYMORE.")
 	print("BTSOOT SERVER")
 	while 1: #ENTERING MAIN LOOP FOR CONTINUOS USAGE
 		print(":: Waiting for incoming connection...")
